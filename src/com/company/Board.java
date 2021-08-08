@@ -6,6 +6,7 @@ public class Board {
 
     public Board(int x, int y) {
         this.squares = new Square[x][y];
+        this.newBoard();
     }
 
     public Board() throws Exception {
@@ -19,16 +20,13 @@ public class Board {
         return squares[x][y];
     }
 
-    /*
-    TODO: Find out why each square appears to be set to null
-     */
     public void printCurrentBoardState() throws Exception {
         System.out.println("\nCurrent Board State:");
         System.out.println(" _ _ _ _ _ _ _ _ _ _ _ _ _");
         for (int i = 0; i < 8; i++) {
             System.out.print("|");
             for (int j = 0; j < 8; j++)
-                if (this.squares[i][j].getPieceType() == null) {
+                if (this.squares[i][j].getPieceIdentifier() == null) {
                     System.out.print(" - ");
                 } else {
                     System.out.print(" " + squares[i][j].getPieceIdentifier() + " ");
